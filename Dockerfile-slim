@@ -4,6 +4,6 @@ RUN set -ex; \
   ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
   dpkg-reconfigure -f noninteractive tzdata
 
-COPY assets/debian/.profile  /root/.profile
+COPY assets/debian/.bashrc  /root/.bashrc
 
 CMD bash -l
