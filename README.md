@@ -8,12 +8,12 @@ docker-node
 Derivate of [official node image](https://hub.docker.com/_/node/) with
 timezone set to `Europe/Berlin` and some common bash aliases.
 
+  - `simbo/node:latest` (debian jessie with common libs)
+  - `simbo/node:latest-slim` (debian jessie with minimum requirements)
+  - `simbo/node:latest-alpine` (alpine)
+
 ``` sh
 docker pull simbo/node:latest
 docker pull simbo/node:latest-slim
 docker pull simbo/node:latest-alpine
 ```
-
-  - `simbo/node:latest` (debian jessie with common libs)
-  - `simbo/node:latest-slim` (debian jessie with minimum requirements)
-  - `simbo/node:latest-alpine` (alpine)
