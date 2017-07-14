@@ -3,7 +3,7 @@ docker-node
 
 > Docker images with node and yarn.
 
-[![docker:simbo/node](https://img.shields.io/badge/docker-simbo%2Fnode-blue.svg)](https://hub.docker.com/r/simbo/node/)
+[![docker:simbo/node](https://img.shields.io/docker/build/simbo/node.svg)](https://hub.docker.com/r/simbo/node/)
 
 ``` sh
 docker pull simbo/node:latest
