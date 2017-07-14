@@ -4,4 +4,6 @@ RUN apk add --no-cache tzdata \
   && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
   && echo "Europe/Berlin" > /etc/timezone
 
-CMD sh
+COPY assets/alpine/.profile /root/.profile
+
+CMD sh -l
