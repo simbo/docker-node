@@ -5,7 +5,7 @@ docker-node
 
 [![docker:simbo/node](https://img.shields.io/docker/build/simbo/node.svg)](https://hub.docker.com/r/simbo/node/)
 
-Derivated from [official node image](https://hub.docker.com/_/node/) with
+Derivate of [official node image](https://hub.docker.com/_/node/) with
 timezone set to `Europe/Berlin` and some common bash aliases.
 
 ``` sh
