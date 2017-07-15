@@ -1,9 +1,8 @@
-export PS1="\[\033[1;30m\]\w\[\033[0m\] \\$ "
+export PS1="\[\033[1;30m\]\w\[\033[0m\] \[\033[1;37m\]\\$\[\033[0m\] "
 
 export SHELL=/bin/bash
 
-export LS_OPTIONS='--color=auto'
 eval "`dircolors`"
-alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -l'
-alias la='ls $LS_OPTIONS -lA'
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -lA'

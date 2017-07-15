@@ -1,9 +1,11 @@
 FROM node:8.1.4-alpine
 
-RUN apk add --no-cache tzdata \
-  && cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
-  && echo "Europe/Berlin" > /etc/timezone
-
 COPY assets/alpine/.profile /root/.profile
+COPY assets/.yarnrc /.yarnrc
+
+RUN set -ex; \
+  apk add --no-cache tzdata; \
+  cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
+  echo "Europe/Berlin" > /etc/timezone
 
 CMD sh -l
