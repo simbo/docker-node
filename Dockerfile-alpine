@@ -4,7 +4,7 @@ COPY assets/alpine/.profile /root/.profile
 COPY assets/.yarnrc /.yarnrc
 
 RUN set -ex; \
-  apk add --no-cache tzdata; \
+  apk add --no-cache tzdata gcc make python; \
   cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
   echo "Europe/Berlin" > /etc/timezone
 

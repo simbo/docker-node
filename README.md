@@ -8,6 +8,8 @@ docker-node
 Derivate of [official node image](https://hub.docker.com/_/node/) with
 timezone set to “Europe/Berlin” and some common environment settings.
 
+The alpine version has python, make and gcc installed to support node-gyp.
+
   - `simbo/node:latest` (jessie with common libs)
   - `simbo/node:latest-slim` (minimum jessie)
   - `simbo/node:latest-alpine` (alpine)
