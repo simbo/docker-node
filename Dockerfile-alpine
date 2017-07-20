@@ -1,7 +1,6 @@
 FROM node:8.2.0-alpine
 
 COPY assets/alpine/.profile /root/.profile
-COPY assets/.yarnrc /.yarnrc
 
 RUN set -ex; \
   apk add --no-cache tzdata; \
