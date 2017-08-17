@@ -6,5 +6,3 @@ RUN set -ex; \
   apk add --no-cache tzdata; \
   cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
   echo "Europe/Berlin" > /etc/timezone
-
-CMD sh -l
