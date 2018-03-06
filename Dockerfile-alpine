@@ -5,4 +5,5 @@ COPY assets/alpine/.profile /root/.profile
 RUN set -ex; \
   apk add --no-cache tzdata; \
   cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
-  echo "Europe/Berlin" > /etc/timezone
+  echo "Europe/Berlin" > /etc/timezone; \
+  yarn config set disable-self-update-check true
