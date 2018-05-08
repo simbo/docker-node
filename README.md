@@ -13,8 +13,8 @@ These images are derivates of the [official node images](https://hub.docker.com/
 
 Beside the same variations like the original node image, there is also a `*-gyp` version available, which includes all requirements to use [node-gyp](https://github.com/nodejs/node-gyp):
 
-  - `simbo/node:latest` (jessie with common libs)
-  - `simbo/node:latest-slim` (minimum jessie with curl)
+  - `simbo/node:latest` (debian with common libs)
+  - `simbo/node:latest-slim` (minimum debian with curl)
   - `simbo/node:latest-gyp` (slim with node-gyp requirements)
   - `simbo/node:latest-alpine` (alpine)
 
