@@ -12,8 +12,8 @@ env:
 
 script:
 - export COMMIT=${TRAVIS_COMMIT::8}
-- export REPO=simbo/node
-- export TAG=`if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]] ; then echo $TRAVIS_BRANCH; else echo "latest" fi`
+- export REPO="simbo/node"
+- export TAG=`if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]] ; then echo $TRAVIS_BRANCH; else echo "latest"; fi`
 - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 - docker build -f Dockerfile -t $REPO:$TAG --build-arg TAG=$TAG .
 - docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg TAG=$TAG .
