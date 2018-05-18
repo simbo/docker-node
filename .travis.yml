@@ -11,20 +11,19 @@ env:
   - secure: c1sY2BnbdXWBX4FMYi2P2i/C819jAopeoYi9hxhWEA+YPn3NHpaGMT+gP6ld1bxDYEXTyCw5Z8x53I3Yxxdqx08IAhOlv/d98yPrOHdY7VnFB0jGTkzFSMAXqjq4aum11xqwfyBf+MdoZRBL2bDrQDiD3/bl4Ch6aNvpwHqlVFlyCJNUspN+y4dbSX6wnUrgXy/UrBSTF+vxoEJt6kIp9Eb7Atl/3SILGuXuSWubysWly0HexzsX9n4VfnCLCGVn0U4vCb/2t0ndn241sISr0UFCLkXpc5YuE2DoPiDklMUrstQdHl/kN1E0YEpu2axDokYePXbnTUNb+84Gj8fvO5bFs2A8hoL51wDUwSGC+Z4EfROW5jh6HCw3tN2Ajp6wpTs/p3pU4VTEycu+4YQKX4LmfSYk4cn6T2jYN2B28sb8zhJrA6DkxUKaNL/+4HbgWpbBDg/95d/kQJNWFaiIVPJTtkOR5yw9VcKPlqtpZPQPw/PJDlM0gsEvQOZXoHs4vZfJuInpj5Ebzc9+wquk/aN2DReg3fBhxqvJleLU166dTrjvqBVMdcvzB4dmBi/IDC1rYJkLpNdw2kyakA+57apCcH1tM4tV/KoY8GUnmdKTKhQ78W3aQGi8ala7/IVtzqeYeIdTYJYJzBNLVCo0huAAjjsF4M8CupDVHiQylOA=
 
 script:
+- export REPO=simbo/node
+- export LTS_VERSION=8.11.2
 - export COMMIT=${TRAVIS_COMMIT::8}
-- export REPO="simbo/node"
-- export TAG=`if [[ $TRAVIS_BRANCH =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then echo $TRAVIS_BRANCH; else echo "latest"; fi`
+- if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]]; then \
+    export TAG=$TRAVIS_BRANCH;\
+    export VERSION=$TRAVIS_BRANCH;\
+  else \
+    export TAG="latest";\
+    export VERSION=$LTS_VERSION;\
+  fi
 - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-- docker build -f Dockerfile -t $REPO:$TAG --build-arg TAG=$TAG .
-- docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg TAG=$TAG .
-- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg TAG=$TAG .
-- docker build -f Dockerfile-alpine -t $REPO:$TAG-alpine --build-arg TAG=$TAG .
-- docker tag $REPO:$TAG $REPO:$(sed -r 's/^([0-9]+).*$/\1/' <<< $TAG)
-- docker tag $REPO:$TAG $REPO:$(sed -r 's/^([0-9]+\.[0-9]+).*$/\1/' <<< $TAG)
-- docker tag $REPO:$TAG-slim $REPO:$(sed -r 's/^([0-9]+).*$/\1/' <<< $TAG)-slim
-- docker tag $REPO:$TAG-slim $REPO:$(sed -r 's/^([0-9]+\.[0-9]+).*$/\1/' <<< $TAG)-slim
-- docker tag $REPO:$TAG-gyp $REPO:$(sed -r 's/^([0-9]+).*$/\1/' <<< $TAG)-gyp
-- docker tag $REPO:$TAG-gyp $REPO:$(sed -r 's/^([0-9]+\.[0-9]+).*$/\1/' <<< $TAG)-gyp
-- docker tag $REPO:$TAG-alpine $REPO:$(sed -r 's/^([0-9]+).*$/\1/' <<< $TAG)-alpine
-- docker tag $REPO:$TAG-alpine $REPO:$(sed -r 's/^([0-9]+\.[0-9]+).*$/\1/' <<< $TAG)-alpine
+- docker build -f Dockerfile -t $REPO:$TAG --build-arg VERSION=$VERSION .
+- docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg VERSION=$VERSION .
+- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$VERSION .
+- docker build -f Dockerfile-alpine -t $REPO:$TAG-alpine --build-arg VERSION=$VERSION .
 - docker push $REPO

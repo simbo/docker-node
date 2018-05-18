@@ -1,10 +1,10 @@
-ARG TAG=8.11.2
+ARG VERSION=8.11.2
 
-FROM simbo/node:${TAG}-slim
+FROM simbo/node:${VERSION}-slim
 
 RUN set -ex; \
   apt-get update; \
-  apt-get install -y --no-install-recommends \
+  apt-get install -qq --no-install-recommends \
     build-essential \
     python \
   ; \

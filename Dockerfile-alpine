@@ -1,6 +1,6 @@
-ARG TAG=8.11.2
+ARG VERSION=8.11.2
 
-FROM node:${TAG}-alpine
+FROM node:${VERSION}-alpine
 
 COPY assets/alpine/.profile /root/.profile
 
