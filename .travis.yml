@@ -24,6 +24,9 @@ script:
 - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 - docker build -f Dockerfile -t $REPO:$TAG --build-arg VERSION=$VERSION .
 - docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg VERSION=$VERSION .
-- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$VERSION .
 - docker build -f Dockerfile-alpine -t $REPO:$TAG-alpine --build-arg VERSION=$VERSION .
-- docker push $REPO
+- docker push $REPO:$TAG
+- docker push $REPO:$TAG-slim
+- docker push $REPO:$TAG-alpine
+- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$VERSION .
+- docker push $REPO:$TAG-gyp
