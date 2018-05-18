@@ -28,5 +28,5 @@ script:
 - docker push $REPO:$TAG
 - docker push $REPO:$TAG-slim
 - docker push $REPO:$TAG-alpine
-- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$VERSION .
+- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$TAG .
 - docker push $REPO:$TAG-gyp
