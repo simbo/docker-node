@@ -7,16 +7,16 @@ language: generic
 
 env:
   global:
-  - secure: ajabzbw+rmguQxmQS4szZlVoBf1FM9TnmxPpqZ+NBYN8htTdR3X9KCxktDAySVDmbiGEmZwVbH4MW2WE8dQ7qmPEA+/9o3J0ljIkK5i+gqbj8qAWhBg3ByMZdQjSQzOscL3YsT5jjOnxxZ59a+aLvbxz/9UQ9yjLa487BCIbG6qnlaIN37KBM4PXJyKiEZyOyQuyfCMKKcrAKgUj8D9URV5fMSvkeu9/k79215Gj7MsBCZMFYp1iGHE3KbCPRgo/ZCiiVE4ZPCysX1LQ/fIGLEzZYfftRY/herXf6kdUPCSgyzKJW+GTHrXzFMSLapUZCgAUqnX9gTto7lTzFqFubMf1qRt35wfZjyXgetQzQ1S1cjoISRYJxGZZu5S0fxnt0apFjntIdvzDJD/0+zy56Id35juqnjNpCnuNO9TDbfNvlPR1ReHx8NS0Fa3F/jXOtQhZ0tkaYeMRvHuf+oT+egJHaHkzE/vEipMKdG7eeF3Lrp4D9665Krh7wXJ0JsFyTNTzblrV23ddu1HgyzLKlALZTCBxrJuISJwJY0qEcKywgvn4KU0xCMr8NIbJDikNtTtLv9HhcSArLtzAooSa3khbxvLekWMHjo5cs7/PFWJKf1S0Bo19gmk5l0Yfb9HWY3Bf7VGbk7ADQQZkVNsXLmKWaPYlwI8nN+n67jwnmLs=
-  - secure: bOItQfEKNsI7C7eoDx9/nL207CytvDfaiVJrlxnGt5+YWi5MrsP68LqpEldHSMbUEv2e4Y4s9nz+QQEFyCweojGEfSVIGBQLZ05YU4atUaDJ+MUd6houIB9m+Kvsn/IFJkOt1bJCDcJa4ycKtPet+Txq7n19gV5jg03Gnz/yHxk95sZBYbe+jcfd/EoW2iX1wmqcMKrwu48HDLxo2lYS7uqhr9F9KrUCWi7UX7rDrHsOip0St3TiOy72A+GWJSdbeU/zx8wvevydYCn0CsSJaf+Up2ouDCGVBSb83//PafwKPq5jAh15I/7iAxBI3RfdUmJ9PalvrCWrhjIGJ5NFi8LiKREIDeiZLSyWqaLPI1xuNAlSjGgbyKZATHlNmF65gdVki1Gof6+T3DOf/o7e95HLyZR59SJPWg91PCA4zhCf0/PR9ZfsrephtfqXRZNNOT64TAVPaDOXoRSKL1S7JTpnThLMyTgeJqiwcVOL71R6PW9BaD6kmtB0KzYifFfpo9gDzzarnAhX8YPH9OiUsnNNBuzEAZ0uFG64BlN4ktUCNQw+Opb5OKiHmFKZZOJMkoeqKD8R6RKhKbh/3YV9JFSMn0AxcC8kRbZ3L56Hkc3DPeN3c83O/CxmPz1CMp7FQ2ZTV13cY0fad64dwa0l5eCd2r8E0MY+nw6aO/xWAC8=
-  - secure: B4XuT/Tx/9b8Z4KZklX+3i8QaNEeLmyG/dcMtyKfqYJFfbNvhwOGOVn5le6FB06vJrvkjyhuatFLgtn6KRKopnPfpvOet9ot82Ej+mrv1vWxfFO8f5nmwvRJu8YgT4obs4gzGcxkJJzwZSdD7runNbEdIGAGFokOXJtTmz1kVWZOuoRjkonhokhOnlobk4b8blrcVZusaVRkLvQNlgJxEN7P5c+6tCZ8BiEJXlQqzCbt5Y0S2tTfh8W3Y3wN9lNR8IsnbVNfPtp7ZMKI6muZ0y7UowP1E+DbUZBmALbAeXDvk6Ib2N+IrJAeEEUmnDbJoeF5C+1HfgGtZefhYDFy3R8z0SOC/WiALCzaUhpc5SVoUYgjulrpSHVNYhabgxFYDHWTSMsg+IqGBfbIJYZJLiOoszobkK84YVZrdFvpjC9kpbpB76EPIaOVLnqiMLak3hW1/k9hpEa3XFA8xY2MC6kFW/U0nrNlMsFBxS8HLxbYkTx6t4IB+mkIT0gcS17DEGeG/58vz9IFFpm1gPKhn1Q0n8WSAwm05KeDYYi9GAY1cBHOKqneI8Q4RKb63TWnB72An0+u+YeN+wIwoSqivCxT9xx3LwV2TBr7jsg46/j7FkfXK9BB6gHCsb6GHV937b0RvDvAtmM7f4Ee8BSG+eP1efSf9yDYKh10e+K2Jt8=
+  - secure: rhZ7ZadEl8f1q/X4e0DwqUot5TxwSsjHIAAu2repLKtDYhB0anxJ7zOLLN5/rLByeAnKmyymNUvpUEx1/nfus4jXPL+0nyyPeu1JcnditGYx3SXHAYCE32Sj5D4h302Z5xW8eZq8/dan/Af04CGP/vzCI/cLKCJpnn1TdUh0cklClEX2P62iRzWUBw6UC8te+xPQp5NeMoTEnNDhP9GMRiXWdgHU1t8zQfELvmO/PwPe7rd8YbmJQeguD6euL7+ayDHavobSN+cMHgALS+TOTnHP10+aJoWjARH0YwzWshxa1x+XI19X9Oxgo3EnAFDN3aYI6vaFxCTqfHul8NfJCYR9qZpArtboDC8qx8JGn4/E3isDJlz00OgRvtRzRhTv07HIYQY3jpS6T4B0m3rR/0VLSl1EwXnqmy6nUMNtl3unSC0HUWVCL0PJxbk93h3i20g6bJYgzVVTLv9FQ6mDUbFp0atrdjWSTKiP3hKs5KfWi5APuN1yFM+8AmuhGCkuhrk7+Ooju+fJ1fGfShfY8LLQi4EaxT1Oiwb8H2faYykWOYtlkZSg70Li+t/JMBdi6Q/+sPexFD6e52VUnufpYLh89MeDunIxIB/5HAdR0h3z38xgz06wYiL1ErDCtPbRlrSvx1xrNwufAFGdvxsZfxVlGVBbaBMR9cTWqheqG2A=
+  - secure: c1sY2BnbdXWBX4FMYi2P2i/C819jAopeoYi9hxhWEA+YPn3NHpaGMT+gP6ld1bxDYEXTyCw5Z8x53I3Yxxdqx08IAhOlv/d98yPrOHdY7VnFB0jGTkzFSMAXqjq4aum11xqwfyBf+MdoZRBL2bDrQDiD3/bl4Ch6aNvpwHqlVFlyCJNUspN+y4dbSX6wnUrgXy/UrBSTF+vxoEJt6kIp9Eb7Atl/3SILGuXuSWubysWly0HexzsX9n4VfnCLCGVn0U4vCb/2t0ndn241sISr0UFCLkXpc5YuE2DoPiDklMUrstQdHl/kN1E0YEpu2axDokYePXbnTUNb+84Gj8fvO5bFs2A8hoL51wDUwSGC+Z4EfROW5jh6HCw3tN2Ajp6wpTs/p3pU4VTEycu+4YQKX4LmfSYk4cn6T2jYN2B28sb8zhJrA6DkxUKaNL/+4HbgWpbBDg/95d/kQJNWFaiIVPJTtkOR5yw9VcKPlqtpZPQPw/PJDlM0gsEvQOZXoHs4vZfJuInpj5Ebzc9+wquk/aN2DReg3fBhxqvJleLU166dTrjvqBVMdcvzB4dmBi/IDC1rYJkLpNdw2kyakA+57apCcH1tM4tV/KoY8GUnmdKTKhQ78W3aQGi8ala7/IVtzqeYeIdTYJYJzBNLVCo0huAAjjsF4M8CupDVHiQylOA=
 
 script:
-  - export COMMIT=${TRAVIS_COMMIT::8}
-  - export REPO=simbo/node
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-  - docker build -f Dockerfile -t $REPO:$COMMIT .
-  - docker tag $REPO:$COMMIT $REPO:$TAG
-  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
-  # - docker push $REPO
+- export COMMIT=${TRAVIS_COMMIT::8}
+- export REPO=simbo/node
+- export TAG=`if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]] ; then echo $TRAVIS_BRANCH; else echo "latest" fi`
+- echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+- docker build -f Dockerfile -t $REPO:$TAG --build-arg TAG=$TAG .
+- docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg TAG=$TAG .
+- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg TAG=$TAG .
+- docker build -f Dockerfile-alpine -t $REPO:$TAG-alpine --build-arg TAG=$TAG .
+- docker push $REPO
