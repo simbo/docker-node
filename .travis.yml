@@ -14,12 +14,12 @@ script:
 - export REPO=simbo/node
 - export LTS_VERSION=8.11.2
 - export COMMIT=${TRAVIS_COMMIT::8}
-- if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]]; then \
-    export TAG=$TRAVIS_BRANCH;\
-    export VERSION=$TRAVIS_BRANCH;\
-  else \
-    export TAG="latest";\
-    export VERSION=$LTS_VERSION;\
+- if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]]; then
+    export TAG=$TRAVIS_BRANCH;
+    export VERSION=$TRAVIS_BRANCH;
+  else
+    export TAG="latest";
+    export VERSION=$LTS_VERSION;
   fi
 - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
 - docker build -f Dockerfile -t $REPO:$TAG --build-arg VERSION=$VERSION .
