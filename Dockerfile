@@ -1,4 +1,6 @@
-FROM node:10.0.0
+ARG TAG=latest
+
+FROM node:${TAG}
 
 COPY assets/debian/.bashrc /root/.bashrc
 

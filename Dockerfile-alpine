@@ -1,4 +1,6 @@
-FROM node:10.0.0-alpine
+ARG TAG=latest
+
+FROM node:${TAG}-alpine
 
 COPY assets/alpine/.profile /root/.profile
 
