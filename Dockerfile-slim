@@ -1,4 +1,4 @@
-ARG TAG=latest
+ARG TAG=8.11.2
 
 FROM node:${TAG}-slim
 
