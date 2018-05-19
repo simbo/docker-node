@@ -84,4 +84,5 @@ git push --tags origin master
 echo ""
 echo "All done."
 echo "See Travis CI for further actions: https://travis-ci.org/simbo/docker-node/builds"
+echo "See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags"
 exit 0

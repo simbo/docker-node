@@ -62,4 +62,5 @@ To github.com:simbo/docker-node.git
 
 All done.
 See Travis CI for further actions: https://travis-ci.org/simbo/docker-node/builds
+See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags
 ```
