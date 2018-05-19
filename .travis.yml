@@ -15,6 +15,8 @@ branches:
   - master
   - /^[0-9]+\.[0-9]+\.[0-9]+$/
 
+fail_fast: true
+
 script:
 - export IMG=simbo/node
 - export TAGGED=`if [[ "$TRAVIS_BRANCH" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then echo true; else echo false; fi`
@@ -24,19 +26,19 @@ script:
 - docker build -f Dockerfile-slim -t $IMG:$TAG-slim .
 - docker build -f Dockerfile-alpine -t $IMG:$TAG-alpine .
 - if $TAGGED; then
-    export TAG_MAJOR=`echo "$TAG" | sed -E 's/^([0-9]+).+$/\1/'`
-    export TAG_MINOR=`echo "$TAG" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`
-    docker tag $IMG:$TAG $IMG:$TAG_MAJOR
-    docker tag $IMG:$TAG $IMG:$TAG_MAJOR
-    docker tag $IMG:$TAG-slim $IMG:$TAG_MAJOR-slim
-    docker tag $IMG:$TAG-slim $IMG:$TAG_MAJOR-slim
-    docker tag $IMG:$TAG-alpine $IMG:$TAG_MAJOR-alpine
-    docker tag $IMG:$TAG-alpine $IMG:$TAG_MAJOR-alpine
+    export TAG_MAJOR=`echo "$TAG" | sed -E 's/^([0-9]+).+$/\1/'`;
+    export TAG_MINOR=`echo "$TAG" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`;
+    docker tag $IMG:$TAG $IMG:$TAG_MAJOR;
+    docker tag $IMG:$TAG $IMG:$TAG_MAJOR;
+    docker tag $IMG:$TAG-slim $IMG:$TAG_MAJOR-slim;
+    docker tag $IMG:$TAG-slim $IMG:$TAG_MAJOR-slim;
+    docker tag $IMG:$TAG-alpine $IMG:$TAG_MAJOR-alpine;
+    docker tag $IMG:$TAG-alpine $IMG:$TAG_MAJOR-alpine;
   fi
 - docker push $IMG
 - docker build -f Dockerfile-gyp -t $IMG:$TAG-gyp .
 - if $TAGGED; then
-    docker tag $IMG:$TAG-gyp $IMG:$TAG_MAJOR-gyp
-    docker tag $IMG:$TAG-gyp $IMG:$TAG_MAJOR-gyp
+    docker tag $IMG:$TAG-gyp $IMG:$TAG_MAJOR-gyp;
+    docker tag $IMG:$TAG-gyp $IMG:$TAG_MAJOR-gyp;
   fi
 - docker push $IMG
