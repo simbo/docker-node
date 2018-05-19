@@ -10,23 +10,24 @@ env:
   - secure: rhZ7ZadEl8f1q/X4e0DwqUot5TxwSsjHIAAu2repLKtDYhB0anxJ7zOLLN5/rLByeAnKmyymNUvpUEx1/nfus4jXPL+0nyyPeu1JcnditGYx3SXHAYCE32Sj5D4h302Z5xW8eZq8/dan/Af04CGP/vzCI/cLKCJpnn1TdUh0cklClEX2P62iRzWUBw6UC8te+xPQp5NeMoTEnNDhP9GMRiXWdgHU1t8zQfELvmO/PwPe7rd8YbmJQeguD6euL7+ayDHavobSN+cMHgALS+TOTnHP10+aJoWjARH0YwzWshxa1x+XI19X9Oxgo3EnAFDN3aYI6vaFxCTqfHul8NfJCYR9qZpArtboDC8qx8JGn4/E3isDJlz00OgRvtRzRhTv07HIYQY3jpS6T4B0m3rR/0VLSl1EwXnqmy6nUMNtl3unSC0HUWVCL0PJxbk93h3i20g6bJYgzVVTLv9FQ6mDUbFp0atrdjWSTKiP3hKs5KfWi5APuN1yFM+8AmuhGCkuhrk7+Ooju+fJ1fGfShfY8LLQi4EaxT1Oiwb8H2faYykWOYtlkZSg70Li+t/JMBdi6Q/+sPexFD6e52VUnufpYLh89MeDunIxIB/5HAdR0h3z38xgz06wYiL1ErDCtPbRlrSvx1xrNwufAFGdvxsZfxVlGVBbaBMR9cTWqheqG2A=
   - secure: c1sY2BnbdXWBX4FMYi2P2i/C819jAopeoYi9hxhWEA+YPn3NHpaGMT+gP6ld1bxDYEXTyCw5Z8x53I3Yxxdqx08IAhOlv/d98yPrOHdY7VnFB0jGTkzFSMAXqjq4aum11xqwfyBf+MdoZRBL2bDrQDiD3/bl4Ch6aNvpwHqlVFlyCJNUspN+y4dbSX6wnUrgXy/UrBSTF+vxoEJt6kIp9Eb7Atl/3SILGuXuSWubysWly0HexzsX9n4VfnCLCGVn0U4vCb/2t0ndn241sISr0UFCLkXpc5YuE2DoPiDklMUrstQdHl/kN1E0YEpu2axDokYePXbnTUNb+84Gj8fvO5bFs2A8hoL51wDUwSGC+Z4EfROW5jh6HCw3tN2Ajp6wpTs/p3pU4VTEycu+4YQKX4LmfSYk4cn6T2jYN2B28sb8zhJrA6DkxUKaNL/+4HbgWpbBDg/95d/kQJNWFaiIVPJTtkOR5yw9VcKPlqtpZPQPw/PJDlM0gsEvQOZXoHs4vZfJuInpj5Ebzc9+wquk/aN2DReg3fBhxqvJleLU166dTrjvqBVMdcvzB4dmBi/IDC1rYJkLpNdw2kyakA+57apCcH1tM4tV/KoY8GUnmdKTKhQ78W3aQGi8ala7/IVtzqeYeIdTYJYJzBNLVCo0huAAjjsF4M8CupDVHiQylOA=
 
+branches:
+  only:
+  - master
+  - /^[0-9]+(\.[0-9]+){0,2}$/
+
 script:
-- export REPO=simbo/node
-- export LTS_VERSION=8.11.2
-- export COMMIT=${TRAVIS_COMMIT::8}
+- export IMG=simbo/node
 - if [[ $TRAVIS_BRANCH =~ ^[0-9]+(\.[0-9]+){0,2}$ ]]; then
     export TAG=$TRAVIS_BRANCH;
-    export VERSION=$TRAVIS_BRANCH;
   else
     export TAG="latest";
-    export VERSION=$LTS_VERSION;
   fi
 - echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-- docker build -f Dockerfile -t $REPO:$TAG --build-arg VERSION=$VERSION .
-- docker build -f Dockerfile-slim -t $REPO:$TAG-slim --build-arg VERSION=$VERSION .
-- docker build -f Dockerfile-alpine -t $REPO:$TAG-alpine --build-arg VERSION=$VERSION .
-- docker push $REPO:$TAG
-- docker push $REPO:$TAG-slim
-- docker push $REPO:$TAG-alpine
-- docker build -f Dockerfile-gyp -t $REPO:$TAG-gyp --build-arg VERSION=$TAG .
-- docker push $REPO:$TAG-gyp
+- docker build -f Dockerfile -t $IMG:$TAG .
+- docker build -f Dockerfile-slim -t $IMG:$TAG-slim .
+- docker build -f Dockerfile-alpine -t $IMG:$TAG-alpine .
+- docker push $IMG:$TAG
+- docker push $IMG:$TAG-slim
+- docker push $IMG:$TAG-alpine
+- docker build -f Dockerfile-gyp -t $IMG:$TAG-gyp .
+- docker push $IMG:$TAG-gyp
