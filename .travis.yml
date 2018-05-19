@@ -35,7 +35,7 @@ script:
     docker tag $IMG:$TAG-alpine $IMG:$TAG_MAJOR-alpine;
     docker tag $IMG:$TAG-alpine $IMG:$TAG_MINOR-alpine;
   fi
-- docker push $IMG
+- docker push $IMG:$TAG-slim
 - docker build -f Dockerfile-gyp -t $IMG:$TAG-gyp .
 - if $TAGGED; then
     docker tag $IMG:$TAG-gyp $IMG:$TAG_MAJOR-gyp;
