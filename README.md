@@ -32,8 +32,33 @@ See the [tags list](https://hub.docker.com/r/simbo/node/tags/) for all available
 
 ## Releasing new versions
 
-See the release script `release-version.sh` for automatically updating dockerfiles and triggering new image releases, using GitHub, Travis CI and Docker Hub.
+See the release script `release-version.sh` for automatically updating dockerfiles and triggering new image releases using GitHub, Travis CI and Docker Hub.
 
 Usage: `./release-version.sh <SEMVER_VERSION>`
 
 Example: `./release-version.sh 8.11.2`
+
+Example output:
+
+```
+# ./release-version.sh 10.1.0
+This script will update all dockerfiles in this repository to node.js version 10.1.0.
+Changes will be committed, tagged with 10.1.0 and pushed to GitHub.
+That should trigger Travis CI, where images will be built and released to Docker Hub tagged with 10, 10.1 and 10.1.0.
+Do you want to continue? (y/n) y
+
+[master 7d66bbf] node.js v10.1.0
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 694 bytes | 347.00 KiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+To github.com:simbo/docker-node.git
+   62dbed0..7d66bbf  master -> master
+ * [new tag]         10.1.0 -> 10.1.0
+
+All done.
+See Travis CI for further actions: https://travis-ci.org/simbo/docker-node/builds
+```
