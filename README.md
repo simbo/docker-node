@@ -28,3 +28,12 @@ docker pull simbo/node:latest-alpine
 It is not recommended to use images with the tag `latest` as they refer to the latest build and not necessarily to the latest version.
 
 See the [tags list](https://hub.docker.com/r/simbo/node/tags/) for all available image versions.
+
+
+## Releasing new versions
+
+See the release script `release-version.sh` for automatically updating dockerfiles and triggering new image releases, using GitHub, Travis CI and Docker Hub.
+
+Usage: `./release-version.sh <SEMVER_VERSION>`
+
+Example: `./release-version.sh 8.11.2`
