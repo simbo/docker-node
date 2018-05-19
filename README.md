@@ -3,7 +3,8 @@ docker-node
 
 > Docker images with node.js
 
-[![docker:simbo/node](https://img.shields.io/docker/build/simbo/node.svg)](https://hub.docker.com/r/simbo/node/)
+[![travis:simbo/docker-node](https://travis-ci.org/simbo/docker-node.svg?branch=master)](https://travis-ci.org/simbo/docker-node/builds)  [![Docker Pulls](https://img.shields.io/docker/pulls/simbo/node.svg)](https://hub.docker.com/r/simbo/node)
+
 
 These images are derivates of the [official node images](https://hub.docker.com/_/node/) with the following changes:
 
@@ -36,7 +37,7 @@ See the release script `release-version.sh` for automatically updating dockerfil
 
 Usage: `./release-version.sh <SEMVER_VERSION>`
 
-Example: `./release-version.sh 8.11.2`
+Example: `./release-version.sh 10.1.0`
 
 Example output:
 
