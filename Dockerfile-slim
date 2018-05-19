@@ -1,4 +1,4 @@
-FROM node:9.11.1-slim
+FROM node:10.1.0-slim
 
 COPY assets/debian/.bashrc /root/.bashrc
 
