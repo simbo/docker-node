@@ -25,6 +25,6 @@ docker pull simbo/node:latest-gyp
 docker pull simbo/node:latest-alpine
 ```
 
-Images tagged with `latest` use the latest LTS version of node.
+It is not recommended to use images with the tag `latest` as they refer to the latest build and not necessarily to the latest version.
 
 See the [tags list](https://hub.docker.com/r/simbo/node/tags/) for all available image versions.
