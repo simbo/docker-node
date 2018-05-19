@@ -1,6 +1,4 @@
-ARG VERSION=8.11.2
-
-FROM node:${VERSION}
+FROM node:8.11.2
 
 COPY assets/debian/.bashrc /root/.bashrc
 

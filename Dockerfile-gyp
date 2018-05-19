@@ -1,6 +1,4 @@
-ARG VERSION=8.11.2
-
-FROM simbo/node:${VERSION}-slim
+FROM simbo/node:8.11.2-slim
 
 RUN set -ex; \
   apt-get update; \

@@ -1,6 +1,4 @@
-ARG VERSION=8.11.2
-
-FROM node:${VERSION}-alpine
+FROM node:8.11.2-alpine
 
 COPY assets/alpine/.profile /root/.profile
 
