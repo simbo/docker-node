@@ -1,4 +1,4 @@
-FROM simbo/node:8.11.3-slim
+FROM simbo/node:10.7.0-slim
 
 RUN set -ex; \
   apt-get update; \
