@@ -3,7 +3,7 @@ docker-node
 
 > Docker images with node.js and some opinionated settings.
 
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/simbo/docker-node/CI/master)](https://github.com/simbo/docker-node/actions?query=workflow%3ACI)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/simbo/docker-node/CI)](https://github.com/simbo/docker-node/actions?query=workflow%3ACI)
 [![Docker Pulls](https://img.shields.io/docker/pulls/simbo/node.svg)](https://hub.docker.com/r/simbo/node)
 
 
