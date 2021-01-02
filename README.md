@@ -10,10 +10,10 @@ docker-node
 These images are derivates of the [official node images](https://hub.docker.com/_/node/)
 with the following changes:
 
-  - timezone set to “Europe/Berlin”
+  - timezone set to "Europe/Berlin"
   - simple prompt with current path and docker image name
   - yarn self-update check disabled
-  - debian images have nano installed and set as default editor
+  - nano installed and set as default editor
 
 Beside the same variations like the original node image, there is also a `*-gyp`
 version available, which includes all requirements to use [node-gyp](https://github.com/nodejs/node-gyp):
@@ -36,11 +36,40 @@ to the latest build and not necessarily to the latest version.
 See the [tags list](https://hub.docker.com/r/simbo/node/tags/) for all available
 image versions.
 
+## Development
 
-## Releasing new versions
+### Local Builds for Testing
 
-See the release script `release-version` for automatically updating dockerfiles
-and triggering new image releases using GitHub, Travis CI and Docker Hub.
+```sh
+# build default image
+docker build -f Dockerfile -t test-simbo/node .
+# build slim image
+docker build -f Dockerfile-slim -t test-simbo/node-slim .
+# build gyp image
+docker build -f Dockerfile-gyp -t test-simbo/node-gyp .
+# build alpine image
+docker build -f Dockerfile-alpine -t test-simbo/node-alpine .
+
+# run default image with login shell
+docker run --rm -it test-simbo/node bash
+# run slim image with login shell
+docker run --rm -it test-simbo/node-slim bash
+# run gyp image with login shell
+docker run --rm -it test-simbo/node-gyp bash
+# run alpine image with login shell
+docker run --rm -it test-simbo/node-alpine sh -l
+
+# remove images afterwars
+docker image rm test-simbo/node test-simbo/node-slim test-simbo/node-gyp test-simbo/node-alpine
+
+# optionally: clear everything docker from your system
+docker system prune -a
+```
+
+### Releasing new Versions
+
+Use the release script `release-version` for automatically updating dockerfiles
+and triggering new image releases using GitHub Actions and Docker Hub.
 
 Usage: `./release-version <SEMVER_VERSION>`
 
