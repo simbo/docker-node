@@ -13,6 +13,7 @@ green=$(tput -T$term setaf 10)
 yellow=$(tput -T$term setaf 11)
 blue=$(tput -T$term setaf 12)
 white=$(tput -T$term setaf 15)
+gray=$(tput -T$term setaf 8)
 bold=$(tput -T$term bold)
 normal=$(tput -T$term sgr0)
 
@@ -28,18 +29,18 @@ fi
 cd "$(dirname "$0")"
 
 # test if git is available
-command -v git >/dev/null 2>&1 || { printf >&2 "${red}git is required but not available.${normal}\nAborting.\n"; exit 1; }
+command -v git >/dev/null 2>&1 || { printf >&2 "${red}git is required but not available.${normal}\n${gray}Aborting.${normal}\n"; exit 1; }
 
 # test if current branch is master
 currentBranch="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$currentBranch" != "master" ]]; then
-  printf "${red}Your current git branch should be master but is $currentBranch.${normal}\nAborting.\n"
+  printf "${red}Your current git branch should be master but is $currentBranch.${normal}\n${gray}Aborting.${normal}\n"
   exit 1
 fi
 
 # test if working tree is clean
 if repoStatus=$(git status --untracked-files=no --porcelain) && [ ! -z "$repoStatus" ]; then
-  printf "${red}Your git repository seems to have uncommitted changes.${normal}\nAborting.\n"
+  printf "${red}Your git repository seems to have uncommitted changes.${normal}\n${gray}Aborting.${normal}\n"
   exit 1
 fi
 
@@ -48,16 +49,17 @@ versionMajor=`echo "$version" | sed -E 's/^([0-9]+).+$/\1/'`
 versionMinor=`echo "$version" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`
 
 # confirm actions
+printf "\n📦 ${white}Publish new Versions for ${bold}simbo/docker-node${normal}\n"
 printf "\nThis script will update all dockerfiles in this repository to \n"
-printf "\n    ${yellow}${bold}node.js v$version${normal}\n"
-printf "\nChanges will be committed, tagged with ${white}${bold}\"$version\"${normal} and pushed to GitHub.\n"
-printf "This push should trigger GitHub Actions, where images will be built and released to Docker Hub tagged with "
-printf "${white}${bold}\"$versionMajor\"${normal}, ${white}${bold}\"$versionMinor\"${normal} and ${white}${bold}\"$version\"${normal}.\n"
+printf "\n    ${yellow}${bold}node.js v${version}${normal}\n"
+printf "\nChanges will be committed, tagged with ${white}${bold}${version}${normal} and pushed to GitHub.\n"
+printf "This push should trigger GitHub Actions, where images will be built and released to Docker Hub, tagged with "
+printf "${white}${bold}${version}Major${normal}, ${white}${bold}${version}Minor${normal} and ${white}${bold}${version}${normal}.\n"
 printf "\nPress ${white}${bold}[ENTER] to continue${normal} or anything else to cancel."
 IFS= read -s -n 1 key
 echo ""
 if [[ $key != "" ]]; then
-  printf "Cancelled.\n"
+  printf "${gray}Cancelled.${normal}\n"
   exit 1
 fi
 echo ""
@@ -94,7 +96,7 @@ git tag -a $version -m "$message"
 git push --tags origin master
 
 # print success message
-printf "\n${green}All done.${normal}\n"
-printf "See GitHub Actions for CI details: ${blue}https://github.com/simbo/docker-node/actions${normal}\n"
+printf "\n✅ ${green}All done.${normal}\n"
+printf "\nSee GitHub Actions for CI details: ${blue}https://github.com/simbo/docker-node/actions${normal}\n"
 printf "See Docker Hub for released images: ${blue}https://hub.docker.com/r/simbo/node/tags${normal}\n"
 exit 0
