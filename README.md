@@ -109,3 +109,7 @@ To github.com:simbo/docker-node.git
 See GitHub Actions for CI details: https://github.com/simbo/docker-node/actions
 See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags
 ```
+
+## License and Author
+
+[MIT &copy; Simon Lepel](http://simbo.mit-license.org/)
