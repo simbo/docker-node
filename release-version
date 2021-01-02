@@ -8,9 +8,9 @@ VERSION=$1
 
 # test cli param and print usage information
 if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "Upgrade node.js version and release new images."
-  echo "Usage: $0 <SEMVER_VERSION>"
-  echo "Example: $0 8.11.2"
+  printf "Upgrade node.js version and release new images.\n"
+  printf "Usage: $(basename "$0") <SEMVER_VERSION>\n"
+  printf "Example: $(basename "$0") 8.11.2\n"
   exit 1
 fi
 
@@ -18,18 +18,18 @@ fi
 cd "$(dirname "$0")"
 
 # test if git is available
-command -v git >/dev/null 2>&1 || { echo >&2 "git is required but not available.  Aborting."; exit 1; }
+command -v git >/dev/null 2>&1 || { printf >&2 "git is required but not available.\nAborting.\n"; exit 1; }
 
 # test if current branch is master
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$CURRENT_BRANCH" != "master" ]]; then
-  echo "Your current git branch should be master but is $CURRENT_BRANCH.  Aborting."
+  printf "Your current git branch should be master but is $CURRENT_BRANCH.\nAborting.\n"
   exit 1
 fi
 
 # test if working tree is clean
 if REPO_STATUS=$(git status --untracked-files=no --porcelain) && [ ! -z "$REPO_STATUS" ]; then
-  echo "Your git repository seems to have uncommitted changes.  Aborting."
+  printf "Your git repository seems to have uncommitted changes.\nAborting.\n"
   exit 1
 fi
 
@@ -38,13 +38,14 @@ VERSION_MAJOR=`echo "$VERSION" | sed -E 's/^([0-9]+).+$/\1/'`
 VERSION_MINOR=`echo "$VERSION" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`
 
 # confirm actions
-echo "This script will update all dockerfiles in this repository to node.js version $VERSION."
-echo "Changes will be committed, tagged with $VERSION and pushed to GitHub."
-echo "That should trigger Travis CI, where images will be built and released to Docker Hub tagged with $VERSION_MAJOR, $VERSION_MINOR and $VERSION."
-read -p "Do you want to continue? (y/n) " -n 1 -r CONFIRM
+printf "This script will update all dockerfiles in this repository to node.js version $VERSION.\n"
+printf "Changes will be committed, tagged with $VERSION and pushed to GitHub.\n"
+printf "This push should trigger GitHub Actions, where images will be built and released to Docker Hub tagged with $VERSION_MAJOR, $VERSION_MINOR and $VERSION.\n"
+printf "Press [ENTER] to continue or anything else to cancel.\n"
+IFS= read -s -n 1 key
 echo ""
-if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
-  echo "Cancelled."
+if [[ $key != "" ]]; then
+  printf "Cancelled.\n"
   exit 1
 fi
 echo ""
@@ -62,7 +63,7 @@ declare -a FILES=(
 
 # change files and add changes to git
 for FILE in "${FILES[@]}"; do
-  sed -i '' -E 's/^(FROM[[:space:]]+)(simbo\/)?(node:)([0-9]+\.[0-9]+\.[0-9]+)/\1\2\3'$VERSION'/' $FILE
+  sed -i '' -E 's/^(FROM[[:space:]]+)(node:)([0-9]+\.[0-9]+\.[0-9]+)/\1\2\3'$VERSION'/' $FILE
   git add $FILE
 done
 
@@ -81,8 +82,7 @@ git tag -a $VERSION -m "$MESSAGE"
 git push --tags origin master
 
 # print success message
-echo ""
-echo "All done."
-echo "See Travis CI for further actions: https://travis-ci.org/simbo/docker-node/builds"
-echo "See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags"
+printf "\nAll done.\n"
+printf "See GitHub Actions for CI details: https://github.com/simbo/docker-node/actions\n"
+printf "See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags\n"
 exit 0

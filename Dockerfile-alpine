@@ -1,8 +1,10 @@
 FROM node:10.7.0-alpine
 
-COPY assets/alpine/.profile /root/.profile
+COPY assets/.profile /root/.profile
 
 RUN set -ex; \
+  sed -r -i -e 's/^(export SHELL=)([a-z\/]+)$/\1\/bin\/sh/' /root/.profile; \
+  sed -r -i -e 's/^(dockerImageName="simbo\/node)([-a-z"]+)$/\1-alpine"/' /root/.profile; \
   apk add --no-cache tzdata; \
   cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
   echo "Europe/Berlin" > /etc/timezone; \
