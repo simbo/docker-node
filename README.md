@@ -48,26 +48,35 @@ Example: `./release-version 10.1.0`
 
 Example output:
 
-```
-# ./release-version 14.15.3
-This script will update all dockerfiles in this repository to node.js version 14.15.3.
-Changes will be committed, tagged with 14.15.3 and pushed to GitHub.
-This push should trigger GitHub Actions, where images will be built and released to Docker Hub tagged with 14, 14.15 and 14.15.3.
+```txt
+# ./release-version 10.23.0
+
+📦 Publish new Versions for simbo/docker-node
+
+This script will update all dockerfiles in this repository to
+
+    node.js v10.23.0
+
+Changes will be committed, tagged with 10.23.0 and pushed to GitHub.
+This push should trigger GitHub Actions, where images will be built and released to Docker Hub, where they will be tagged with 10, 10.23 and 10.23.0.
+
 Press [ENTER] to continue or anything else to cancel.
 
-[master 7d66bbf] node.js v14.15.3
+[master c012125] node.js v10.23.0
  4 files changed, 4 insertions(+), 4 deletions(-)
-Counting objects: 7, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 694 bytes | 347.00 KiB/s, done.
-Total 7 (delta 5), reused 0 (delta 0)
-remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
+Objekte aufzählen: 25, fertig.
+Zähle Objekte: 100% (25/25), fertig.
+Delta-Kompression verwendet bis zu 4 Threads.
+Komprimiere Objekte: 100% (19/19), fertig.
+Schreibe Objekte: 100% (19/19), 2.23 KiB | 1.12 MiB/s, fertig.
+Gesamt 19 (Delta 12), Wiederverwendet 0 (Delta 0), Pack wiederverwendet 0
+remote: Resolving deltas: 100% (12/12), completed with 6 local objects.
 To github.com:simbo/docker-node.git
-   62dbed0..7d66bbf  master -> master
- * [new tag]         14.15.3 -> 14.15.3
+   b498c44..c012125  master -> master
+ * [new tag]         10.23.0 -> 10.23.0
 
-All done.
+✅ All done.
+
 See GitHub Actions for CI details: https://github.com/simbo/docker-node/actions
 See Docker Hub for released images: https://hub.docker.com/r/simbo/node/tags
 ```
