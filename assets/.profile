@@ -1,4 +1,6 @@
 export SHELL=/bin/bash
+export EDITOR='nano'
+export VISUAL='nano'
 
 alias ls="ls --group-directories-first --human-readable --color=auto"
 alias ll="ls -lF"

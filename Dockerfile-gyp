@@ -5,14 +5,12 @@ COPY assets/.profile /root/.profile
 RUN set -ex; \
   sed -r -i -e 's/^(dockerImageName="simbo\/node)([-a-z"]+)$/\1-gyp"/' /root/.profile; \
   ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
-  echo "export EDITOR='nano'" >> /root/.profile; \
-  echo "export VISUAL='nano'" >> /root/.profile; \
   mv /root/.profile /root/.bashrc; \
   dpkg-reconfigure -f noninteractive tzdata; \
   yarn config set disable-self-update-check true; \
-  apt-get update; \
-  apt-get install -qq -y --no-install-recommends nano build-essential python; \
-  apt-get autoremove -qq -y; \
-  apt-get autoclean -qq -y; \
-  apt-get clean -qq -y; \
+  apt-get update -qq; \
+  apt-get install -qq --no-install-recommends nano build-essential python >/dev/null; \
+  apt-get autoremove -qq; \
+  apt-get autoclean -qq; \
+  apt-get clean -qq; \
   rm -rf /var/lib/apt/lists/*
