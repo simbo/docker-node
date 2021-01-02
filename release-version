@@ -48,9 +48,11 @@ versionMajor=`echo "$version" | sed -E 's/^([0-9]+).+$/\1/'`
 versionMinor=`echo "$version" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`
 
 # confirm actions
-printf "\nThis script will update all dockerfiles in this repository to \n    ${yellow}${bold}node.js v$version${normal}\n"
-printf "\nChanges will be committed, tagged with \"$version\" and pushed to GitHub.\n"
-printf "This push should trigger GitHub Actions, where images will be built and released to Docker Hub tagged with \"$versionMajor\", \"$versionMinor\" and \"$version\".\n"
+printf "\nThis script will update all dockerfiles in this repository to \n"
+printf "\n    ${yellow}${bold}node.js v$version${normal}\n"
+printf "\nChanges will be committed, tagged with ${white}${bold}\"$version\"${normal} and pushed to GitHub.\n"
+printf "This push should trigger GitHub Actions, where images will be built and released to Docker Hub tagged with "
+printf "${white}${bold}\"$versionMajor\"${normal}, ${white}${bold}\"$versionMinor\"${normal} and ${white}${bold}\"$version\"${normal}.\n"
 printf "\nPress ${white}${bold}[ENTER] to continue${normal} or anything else to cancel."
 IFS= read -s -n 1 key
 echo ""
