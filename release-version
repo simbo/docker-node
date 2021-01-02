@@ -63,7 +63,7 @@ declare -a FILES=(
 
 # change files and add changes to git
 for FILE in "${FILES[@]}"; do
-  sed -i '' -E 's/^(FROM[[:space:]]+)(node:)([0-9]+\.[0-9]+\.[0-9]+)/\1\2\3'$VERSION'/' $FILE
+  sed -i '' -E 's/^(FROM[[:space:]]+)(node:)([0-9]+\.[0-9]+\.[0-9]+)/\1\2'$VERSION'/' $FILE
   git add $FILE
 done
 

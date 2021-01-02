@@ -21,17 +21,14 @@ jobs:
           echo "::set-output name=minor::$(echo "$version" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/')"
         id: version
 
-      - name: test
-        run: echo "${{ steps.version.outputs.version }} ${{ steps.version.outputs.major }} ${{ steps.version.outputs.minor }}"
-
-      # - name: 🎁 Create GitHub Release
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ steps.version.outputs.version }}
-      #     release_name: Release ${{ steps.version.outputs.version }}
-      #     body: Docker Images for node.js ${{ steps.version.outputs.version }}
+      - name: 🎁 Create GitHub Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: Release ${{ steps.version.outputs.version }}
+          body: Docker Images for node.js ${{ steps.version.outputs.version }}
 
       # - name: 🛠 Setup QEMU
       #   uses: docker/setup-qemu-action@v1
