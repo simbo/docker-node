@@ -1,4 +1,4 @@
-FROM node:15.5.0-buster
+FROM node:10.23.0-buster
 
 COPY assets/.profile /root/.profile
 
