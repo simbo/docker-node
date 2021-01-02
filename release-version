@@ -49,7 +49,7 @@ versionMajor=`echo "$version" | sed -E 's/^([0-9]+).+$/\1/'`
 versionMinor=`echo "$version" | sed -E 's/^([0-9]+\.[0-9]+).+$/\1/'`
 
 # confirm actions
-printf "\n📦 ${white}Publish new Versions for ${bold}simbo/docker-node${normal}\n"
+printf "\n📦 ${white}${bold}Publish new Versions for ${yellow}simbo/docker-node${normal}\n"
 printf "\nThis script will update all dockerfiles in this repository to \n"
 printf "\n    ${yellow}${bold}node.js v${version}${normal}\n"
 printf "\nChanges will be committed, tagged with ${white}${bold}${version}${normal} and pushed to GitHub.\n"
