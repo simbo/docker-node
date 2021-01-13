@@ -2,7 +2,7 @@ export SHELL=/bin/bash
 export EDITOR='nano'
 export VISUAL='nano'
 
-alias ls="ls --group-directories-first --human-readable --color=auto"
+alias ls="ls --group-directories-first -h --color=auto"
 alias ll="ls -lF"
 alias la="ll -A"
 
