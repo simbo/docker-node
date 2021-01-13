@@ -13,6 +13,7 @@ with the following changes:
   - timezone set to "Europe/Berlin"
   - simple prompt with current path and docker image name
   - yarn self-update check disabled
+  - yarn cache as persistent volume (`/yarn-cache`)
   - nano installed and set as default editor
 
 Beside the same variations like the original node image, there is also a `*-gyp`
@@ -35,6 +36,27 @@ latest build and not necessarily to the latest version.
 
 See the [tags list](https://hub.docker.com/r/simbo/node/tags/) for all available
 image versions.
+
+### Using the Yarn Cache Volume
+
+With the `docker` command:
+
+```sh
+docker run --rm -it -v yarn-cache:/yarn-cache simbo/node bash
+```
+
+With `docker-compose`:
+
+```yml
+version: "3.9"
+volumes:
+  yarn-cache:
+services:
+  app:
+    image: simbo/node
+    volumes:
+      - yarn-cache:/yarn-cache
+```
 
 ## Development
 

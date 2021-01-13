@@ -2,10 +2,13 @@ FROM node:15.5.0-alpine
 
 COPY assets/.profile /root/.profile
 
+VOLUME /yarn-cache
+
 RUN set -ex; \
   sed -r -i -e 's/^(export SHELL=)([a-z\/]+)$/\1\/bin\/sh/' /root/.profile; \
   sed -r -i -e 's/^(dockerImageName="simbo\/node)([-a-z"]+)$/\1-alpine"/' /root/.profile; \
   apk add -q --no-cache tzdata nano; \
   cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime; \
   echo "Europe/Berlin" > /etc/timezone; \
-  yarn config set disable-self-update-check true
+  yarn config set disable-self-update-check true; \
+  yarn config set cache-folder /yarn-cache
