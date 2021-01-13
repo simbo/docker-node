@@ -95,7 +95,7 @@ and triggering new image releases using GitHub Actions and Docker Hub.
 
 Usage: `./release-version <SEMVER_VERSION>`
 
-Example: `./release-version 10.1.0`
+Example: `./release-version 10.23.0`
 
 Example output:
 
